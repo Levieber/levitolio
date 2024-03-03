@@ -1,0 +1,4 @@
+bun run type:check
+bun run lint:quality:check
+bun run lint:deps:check
+bun run lint:style:check

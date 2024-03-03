@@ -1,0 +1,14 @@
+{
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "style": "error",
+    "nursery": "error",
+    "pedantic": "error",
+    "perf": "error"
+  },
+  "rules": {
+    "func-style": ["error", "declaration"],
+    "no-ternary": "off"
+  }
+}
