@@ -4,6 +4,7 @@ import {
 	PersonIcon,
 	StarIcon,
 } from "@radix-ui/react-icons";
+import Link from "next/link";
 
 export const information = [
 	{
@@ -45,11 +46,11 @@ export const information = [
 		content: (
 			<>
 				<p className="leading-5">
-					É proativo, comunicativo e gostar de aprender e ensinar. É um dos
+					Sou proativo, comunicativo e gosto de aprender e ensinar. Sou um dos
 					membros mais ativos das comunidades: Onebitcode e Alura.
 				</p>
 				<p className="leading-5">
-					Consegue com certa facilidade ler documentações e ver vídeos em
+					Consigo com certa facilidade ler documentações e ver vídeos em
 					inglês. Além de ter um português claro e objetivo, importando-se com a
 					gramática.
 				</p>
@@ -67,7 +68,7 @@ export const information = [
 			<>
 				<p className="leading-5">Ensino médio em andamento.</p>
 				<p className="leading-5">
-					Estudou na Alura, Onebitcode, Rocketseat e Udemy.
+					Estudei na Alura, Onebitcode, Rocketseat e Udemy.
 				</p>
 			</>
 		),
@@ -81,7 +82,7 @@ export const information = [
 		),
 		content: (
 			<>
-				<p className="leading-5">Tem como principais habilidades técnicas:</p>
+				<p className="leading-5">Tenho como principais habilidades técnicas:</p>
 				<ul className="pl-5 list-disc">
 					<li>JavaScript</li>
 					<li>TypeScript</li>
@@ -106,7 +107,7 @@ export const information = [
 						</ul>
 					</li>
 				</ul>
-				<p>Veja os projetos para saber mais habilidades.</p>
+				<p>Veja os <Link className="underline text-primary" href="https://github.com/Levieber">meus projetos</Link> para saber mais habilidades.</p>
 			</>
 		),
 	},

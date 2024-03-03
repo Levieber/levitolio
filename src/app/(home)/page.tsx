@@ -12,9 +12,30 @@ import Image from "next/image";
 import { InformationAccordion } from "./patterns/information-accordion";
 
 const links = [
-	{ icon: ArchiveIcon, text: "Projetos" },
-	{ icon: GitHubLogoIcon, text: "Github" },
-	{ icon: LinkedInLogoIcon, text: "LinkedIn" },
+	{
+		href: "https://github.com/Levieber",
+		content: (
+			<>
+				<ArchiveIcon /> Projetos
+			</>
+		),
+	},
+	{
+		href: "https://github.com/Levieber",
+		content: (
+			<>
+				<GitHubLogoIcon /> Github
+			</>
+		),
+	},
+	{
+		href: "https://www.linkedin.com/in/levi-eber/",
+		content: (
+			<>
+				<LinkedInLogoIcon /> LinkedIn
+			</>
+		),
+	},
 ];
 
 export default function Home() {
