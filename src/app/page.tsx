@@ -50,15 +50,15 @@ export default function Home() {
 					</Link>
 				</Button>
 				<Button variant="default" asChild>
-					<Link href="https://github.com/Levieber">
+					<a target="_blank"  href="https://github.com/Levieber" rel="noopener noreferrer">
 						<GitHubLogoIcon className="inline-block mr-1" /> Seguir no Github
-					</Link>
+					</a>
 				</Button>
 				<Button variant="default" asChild>
-					<Link href="https://www.linkedin.com/in/levi-eber/">
+					<a target="_blank" href="https://www.linkedin.com/in/levi-eber" rel="noopener noreferrer">
 						<LinkedInLogoIcon className="inline-block mr-1" /> Seguir no
 						LinkedIn
-					</Link>
+					</a>
 				</Button>
 			</section>
 		</BannerLayout>
