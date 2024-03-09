@@ -8,7 +8,7 @@ import { Header } from "@/components/header";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-	title: "Levi Eber",
+	title: { template: "%s | Levi Eber", absolute: "Levi Eber" },
 	description: "Levi Eber é um desenvolvedor de software, sobretudo web",
 };
 

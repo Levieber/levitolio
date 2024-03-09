@@ -1,6 +1,12 @@
 import { BannerLayout } from "@/components/banner";
 import * as Accordion from "@/components/ui/accordion";
 import { FileTextIcon, PersonIcon, StarIcon } from "@radix-ui/react-icons";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Sobre",
+	description: "Conheça um pouco mais sobre Levi Eber, um desenvolvedor fullstack.",
+}
 
 export default function About() {
 	return (
