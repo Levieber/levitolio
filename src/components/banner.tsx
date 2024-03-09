@@ -1,29 +1,29 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import Image, { ImageLoader } from "next/image";
-import Link from "next/link";
+import wallpaper from "@/assets/wallpaper.jpg";
+import Image from "next/image";
 
 export default function Banner() {
 	return (
 		<figure className="relative w-full h-[50rem]">
 			<Image
-				src="https://source.unsplash.com/random?a=1"
+				src={wallpaper}
 				alt="Papel de parede aleatório do Unsplash"
 				className="object-cover rounded-lg"
 				priority
 				fill
 			/>
-			<figcaption className="text-zinc-400 absolute z-[2] top-2 left-2">
-				Imagem aleatória do{" "}
-				<Link
-					className="underline text-zinc-500"
+			<figcaption className="text-zinc-200 absolute z-[2] top-2 left-2">
+				Imagem de{" "}
+				<a
+					className="underline"
 					target="_blank"
 					rel="noopener noreferrer"
-					href="https://unsplash.com/"
+					href="https://unsplash.com/pt-br/fotografias/fenomeno-aurora-LhDWW8PhPoE?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash"
 				>
-					Unsplash
-				</Link>
+					Cosmic Timetraveler no Unsplash
+				</a>
 			</figcaption>
 		</figure>
 	);
