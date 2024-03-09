@@ -41,22 +41,22 @@ export default function Home() {
 			<section className="flex flex-col gap-4 justify-center">
 				<Button variant="outline" asChild>
 					<Link prefetch href="/projects">
-						<ArchiveIcon className="inline-block mx-1" /> Ver projetos
+						<ArchiveIcon className="inline-block mr-1" /> Ver projetos
 					</Link>
 				</Button>
 				<Button variant="secondary" asChild>
 					<Link prefetch href="/about">
-						<PersonIcon className="inline-block mx-1" /> Conhecer mais
+						<PersonIcon className="inline-block mr-1" /> Conhecer mais
 					</Link>
 				</Button>
 				<Button variant="default" asChild>
 					<Link href="https://github.com/Levieber">
-						<GitHubLogoIcon className="inline-block mx-1" /> Seguir no Github
+						<GitHubLogoIcon className="inline-block mr-1" /> Seguir no Github
 					</Link>
 				</Button>
 				<Button variant="default" asChild>
 					<Link href="https://www.linkedin.com/in/levi-eber/">
-						<LinkedInLogoIcon className="inline-block mx-1" /> Seguir no
+						<LinkedInLogoIcon className="inline-block mr-1" /> Seguir no
 						LinkedIn
 					</Link>
 				</Button>
