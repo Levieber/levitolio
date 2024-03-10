@@ -1,5 +1,4 @@
 import { ThemeProvider } from "@/components/theme-provider";
-import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -20,7 +19,7 @@ export default function RootLayout({
 	return (
 		<html lang="pt-BR" suppressHydrationWarning>
 			<body
-				className={cn("min-h-screen font-sans antialiased", inter.variable)}
+				className={inter.variable}
 			>
 				<ThemeProvider
 					attribute="class"

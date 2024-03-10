@@ -17,10 +17,6 @@ const links: HeaderLink = [
 		href: "/",
 	},
 	{
-		label: "Sobre",
-		href: "/about",
-	},
-	{
 		label: "Projetos",
 		href: "/projects",
 	},

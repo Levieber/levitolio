@@ -1,12 +1,9 @@
-"use client";
-
-import { cn } from "@/lib/utils";
 import wallpaper from "@/assets/wallpaper.jpg";
 import Image from "next/image";
 
-export default function Banner() {
+export function Banner() {
 	return (
-		<figure className="relative w-full h-[50rem]">
+		<figure className="relative w-full h-full">
 			<Image
 				src={wallpaper}
 				alt="Papel de parede aleatório do Unsplash"
@@ -26,27 +23,5 @@ export default function Banner() {
 				</a>
 			</figcaption>
 		</figure>
-	);
-}
-
-export function BannerLayout({
-	children,
-	className,
-}: Readonly<{
-	children: React.ReactNode;
-	className?: string;
-}>) {
-	return (
-		<main className="relative bg-background text-foreground flex flex-col items-center p-4">
-			<Banner />
-			<section
-				className={cn(
-					"z-20 top-1/2 p-4 -translate-y-1/2 w-full max-w-56 md:max-w-[40rem] absolute rounded-xl bg-background text-foreground",
-					className,
-				)}
-			>
-				{children}
-			</section>
-		</main>
 	);
 }

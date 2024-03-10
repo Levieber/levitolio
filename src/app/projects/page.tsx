@@ -25,7 +25,7 @@ export default async function Projects() {
 	);
 
 	return (
-		<main className="bg-background text-foreground flex items-center flex-col p-4">
+		<main className="flex items-center flex-col p-4">
 			<section>
 				<h1 className="text-5xl">Meus projetos</h1>
 				<p className="my-5 sm:my-3">
@@ -61,7 +61,9 @@ export default async function Projects() {
 				</p>
 			</section>
 			<section className="my-5">
-				<h2 className="text-primary text-2xl italic">Projetos em destaque</h2>
+				<h2 className="text-primary text-2xl italic font-semibold tracking-tight">
+					Projetos em destaque
+				</h2>
 				<p>Os projetos que mais aprendi, que tem maior importância</p>
 				<ul className="mt-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 flex-wrap">
 					{featuredProjects.map((project) => (
@@ -86,7 +88,9 @@ export default async function Projects() {
 				</ul>
 			</section>
 			<section>
-				<h2 className="text-2xl italic">10 projetos recentes no Github</h2>
+				<h2 className="text-2xl italic font-semibold tracking-tight">
+					10 projetos recentes no Github
+				</h2>
 				<p>
 					Lista atualizada a cada dia e baseada no tempo do último commit feito
 				</p>
