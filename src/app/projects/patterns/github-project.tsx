@@ -17,14 +17,16 @@ type GithubProjectProps = {
 };
 
 export async function GithubProject({ project }: GithubProjectProps) {
-	const projectLanguages = Object.keys(parse(
-		projectLanguagesSchema,
-		await fetch(project.languages_url, {
-			next: {
-				revalidate: 60 * 60 * 24, // 1 day
-			},
-		}).then((response) => response.json()),
-	)).join(", ");
+	const projectLanguages = Object.keys(
+		parse(
+			projectLanguagesSchema,
+			await fetch(project.languages_url, {
+				next: {
+					revalidate: 60 * 60 * 24, // 1 day
+				},
+			}).then((response) => response.json()),
+		),
+	).join(", ");
 
 	return (
 		<li
@@ -40,13 +42,12 @@ export async function GithubProject({ project }: GithubProjectProps) {
 						href={project.html_url}
 					>
 						{project.full_name}
-					</a>{" "}
-					- {project.language} (
-					<span className="italic">
-						{dateFormatter.format(new Date(project.updated_at ?? Date.now()))}
-					</span>
-					)
+					</a>
 				</h3>
+				<p>
+					Atualizado em:{" "}
+					{dateFormatter.format(new Date(project.updated_at ?? Date.now()))}
+				</p>
 				<p>Linguagens usadas: {projectLanguages}</p>
 			</div>
 			{project.homepage && (

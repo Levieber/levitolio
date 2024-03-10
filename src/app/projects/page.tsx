@@ -65,13 +65,22 @@ export default async function Projects() {
 				<p>Os projetos que mais aprendi, que tem maior importância</p>
 				<ul className="mt-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 flex-wrap">
 					{featuredProjects.map((project) => (
-						<li key={project.name} className="flex flex-col gap-2 w-full max-w-96 dark:bg-slate-800/40 bg-slate-300/80 p-3 rounded-lg">
-							<project.icon className="h-6 w-6 inline-block" />
-							<h3 className="text-xl italic">{project.name}</h3>
-							{project.description.map((description, index) => (
-								// biome-ignore lint/suspicious/noArrayIndexKey: this list is static
-								<p key={index}>{description}</p>
-							))}
+						<li
+							key={project.name}
+							className="flex flex-col gap-2 w-full max-w-96 dark:bg-slate-800/40 bg-slate-300/80 p-3 rounded-lg"
+						>
+							<a
+								rel="noopener noreferrer"
+								target="_blank"
+								href={project.homepage ?? project.github}
+							>
+								<project.icon className="h-6 w-6 inline-block" />
+								<h3 className="text-xl italic">{project.name}</h3>
+								{project.description.map((description, index) => (
+									// biome-ignore lint/suspicious/noArrayIndexKey: this list is static
+									<p key={index}>{description}</p>
+								))}
+							</a>
 						</li>
 					))}
 				</ul>

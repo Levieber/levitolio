@@ -17,7 +17,6 @@ export const githubProjectsSchema = array(
 		html_url: string([url()]),
 		homepage: nullable(string([url()])),
 		updated_at: nullable(string([isoTimestamp()])),
-		language: nullable(string()),
 		languages_url: string([url()]),
 	}),
 );

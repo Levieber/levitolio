@@ -1,6 +1,16 @@
-import { ComponentBooleanIcon, StarIcon, RocketIcon } from "@radix-ui/react-icons";
+import {
+	ComponentBooleanIcon,
+	StarIcon,
+	RocketIcon,
+} from "@radix-ui/react-icons";
 
-type FeaturedProject = { icon: React.ComponentType<{ className?: string }>, name: string; description: string[] };
+type FeaturedProject = {
+	icon: React.ComponentType<{ className?: string }>;
+	name: string;
+	description: string[];
+	homepage?: string;
+	github?: string;
+};
 
 export const featuredProjects: [
 	FeaturedProject,
@@ -8,6 +18,8 @@ export const featuredProjects: [
 	FeaturedProject,
 ] = [
 	{
+		homepage: undefined,
+		github: "https://github.com/Levieber/aluroni",
 		icon: ComponentBooleanIcon,
 		name: "Aluroni",
 		description: [
@@ -16,6 +28,8 @@ export const featuredProjects: [
 		],
 	},
 	{
+		homepage: "https://track-it-six-pi.vercel.app",
+		github: "https://github.com/Levieber/track-it",
 		icon: StarIcon,
 		name: "Track It",
 		description: [
@@ -24,6 +38,8 @@ export const featuredProjects: [
 		],
 	},
 	{
+		homepage: "https://papelito-admin.vercel.app",
+		github: "https://github.com/Levieber/papelito-admin",
 		icon: RocketIcon,
 		name: "Papelito",
 		description: [
