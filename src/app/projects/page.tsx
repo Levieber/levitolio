@@ -2,30 +2,18 @@ import Link from "next/link";
 import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { featuredProjects } from "@/data/featured-projects";
 import { Metadata } from "next";
-import { parse } from "valibot";
-import { githubProjectsSchema } from "./patterns/projects-schema";
-import { GithubProject } from "./patterns/github-project";
+import { Button } from "@/components/ui/button";
+import { ImageWithFallback } from "@/components/image-with-fallback";
+import projectPreviewFallback from "@/assets/projects/fallback.png";
 
 export const metadata: Metadata = {
 	title: "Projetos",
-	description: "Os projetos de Levi Eber, um desenvolvedor fullstack",
+	description: "Conheça os projetos de Levi Eber, um desenvolvedor fullstack",
 };
 
 export default async function Projects() {
-	const githubProjects = parse(
-		githubProjectsSchema,
-		await fetch(
-			"https://api.github.com/users/levieber/repos?sort=updated&per_page=10",
-			{
-				next: {
-					revalidate: 60 * 60 * 24, // 1 day
-				},
-			},
-		).then((response) => response.json()),
-	);
-
 	return (
-		<main className="flex items-center flex-col p-4">
+		<main className="grow grid grid-rows-3 justify-evenly items-center p-4">
 			<section>
 				<h1 className="text-5xl">Meus projetos</h1>
 				<p className="my-5 sm:my-3">
@@ -61,42 +49,47 @@ export default async function Projects() {
 				</p>
 			</section>
 			<section className="my-5">
-				<h2 className="text-primary text-2xl italic font-semibold tracking-tight">
+				<h2 className="text-2xl font-semibold tracking-tight">
 					Projetos em destaque
 				</h2>
-				<p>Os projetos que mais aprendi, que tem maior importância</p>
-				<ul className="mt-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 flex-wrap">
+				<p>Os projetos que mais aprendi, que tem maior importância.</p>
+				<ul className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 flex-wrap">
 					{featuredProjects.map((project) => (
 						<li
 							key={project.name}
-							className="flex flex-col gap-2 w-full max-w-96 dark:bg-slate-800/40 bg-slate-300/80 p-3 rounded-lg"
+							className="flex flex-col gap-2 h-[28rem] w-full max-w-96 dark:bg-slate-800/40 bg-slate-300/80 p-3 rounded-lg"
 						>
-							<a
-								rel="noopener noreferrer"
-								target="_blank"
-								href={project.homepage ?? project.github}
-							>
-								<project.icon className="h-6 w-6 inline-block" />
-								<h3 className="text-xl italic">{project.name}</h3>
-								{project.description.map((description, index) => (
-									// biome-ignore lint/suspicious/noArrayIndexKey: this list is static
-									<p key={index}>{description}</p>
-								))}
-							</a>
+							<ImageWithFallback
+								fallback={projectPreviewFallback}
+								src={project.preview}
+								alt={`Visualização do projeto ${project.name}`}
+								sizes="100vw"
+								className="w-full h-auto rounded-lg"
+								priority
+							/>
+							<h3 className="text-xl italic">{project.name}</h3>
+							<p>{project.description}</p>
+							<div className="mt-auto flex flex-wrap gap-4">
+								<Button asChild>
+									<a
+										rel="noopener noreferrer"
+										target="_blank"
+										href={project.homepage}
+									>
+										Visualizar projeto
+									</a>
+								</Button>
+								<Button variant="outline" asChild>
+									<a
+										rel="noopener noreferrer"
+										target="_blank"
+										href={project.codeUrl}
+									>
+										Ver código
+									</a>
+								</Button>
+							</div>
 						</li>
-					))}
-				</ul>
-			</section>
-			<section>
-				<h2 className="text-2xl italic font-semibold tracking-tight">
-					10 projetos recentes no Github
-				</h2>
-				<p>
-					Lista atualizada a cada dia e baseada no tempo do último commit feito
-				</p>
-				<ul className="mt-3 grid grid-cols-1 md:grid-cols-2 items-start gap-3">
-					{githubProjects.map((project, index) => (
-						<GithubProject key={project.id} project={project} />
 					))}
 				</ul>
 			</section>
