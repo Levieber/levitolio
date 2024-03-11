@@ -3,7 +3,7 @@ import trackItPreview from "@/assets/projects/track-it.png";
 import papelitoPreview from "@/assets/projects/papelito.png";
 import type { StaticImageData } from "next/image";
 
-type FeaturedProject = {
+export type FeaturedProject = {
 	preview: string | StaticImageData;
 	name: string;
 	description: string;
