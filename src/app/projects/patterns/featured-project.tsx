@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { type FeaturedProject as Project } from "@/data/featured-projects";
+import type { FeaturedProject as Project } from "@/data/featured-projects";
 import { CodeIcon, GlobeIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 

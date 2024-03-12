@@ -1,6 +1,6 @@
 import {
 	url,
-	Input,
+	type Input,
 	array,
 	isoTimestamp,
 	nullable,

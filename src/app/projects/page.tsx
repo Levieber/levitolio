@@ -8,7 +8,7 @@ import {
 	StarIcon,
 	TimerIcon,
 } from "@radix-ui/react-icons";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { parse } from "valibot";
 import { FeaturedProject } from "./patterns/featured-project";
