@@ -1,8 +1,8 @@
+import { Header } from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/header";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -18,9 +18,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="pt-BR" suppressHydrationWarning>
-			<body
-				className={inter.variable}
-			>
+			<body className={inter.variable}>
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"

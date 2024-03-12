@@ -70,7 +70,8 @@ export default function Home() {
 			<section className="max-w-[40rem]">
 				<section className="flex flex-col gap-2">
 					<h2 className="scroll-m-20 text-3xl font-semibold tracking-tight">
-					<PersonIcon className="inline-block mr-1 h-6 w-6" />Sobre mim
+						<PersonIcon className="inline-block mr-1 h-6 w-6" />
+						Sobre mim
 					</h2>
 					<p>
 						Sou apaixonado por tecnologia e conhecimento, principalmente em

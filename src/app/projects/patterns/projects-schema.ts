@@ -1,4 +1,5 @@
 import {
+	url,
 	Input,
 	array,
 	isoTimestamp,
@@ -7,7 +8,6 @@ import {
 	object,
 	record,
 	string,
-	url,
 } from "valibot";
 
 export const githubProjectsSchema = array(
@@ -20,6 +20,6 @@ export const githubProjectsSchema = array(
 		languages_url: string([url()]),
 	}),
 );
-export const projectLanguagesSchema = record(number())
+export const projectLanguagesSchema = record(number());
 
 export type GithubProject = Input<typeof githubProjectsSchema>[0];

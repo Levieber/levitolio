@@ -1,6 +1,6 @@
 import aluroniPreview from "@/assets/projects/aluroni.png";
-import trackItPreview from "@/assets/projects/track-it.png";
 import papelitoPreview from "@/assets/projects/papelito.png";
+import trackItPreview from "@/assets/projects/track-it.png";
 import type { StaticImageData } from "next/image";
 
 export type FeaturedProject = {
