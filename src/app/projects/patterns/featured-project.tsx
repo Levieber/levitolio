@@ -20,18 +20,26 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
 			<h3 className="text-xl italic">{project.name}</h3>
 			<p>{project.description}</p>
 			<div className="mt-auto flex flex-wrap gap-4">
-				<Button asChild>
-					<a rel="noopener noreferrer" target="_blank" href={project.homepage}>
-						<GlobeIcon className="inline-block mr-1" />
-						Visualizar projeto
-					</a>
-				</Button>
-				<Button variant="outline" asChild>
-					<a rel="noopener noreferrer" target="_blank" href={project.codeUrl}>
-						<CodeIcon className="inline-block mr-1" />
-						Ver código
-					</a>
-				</Button>
+				{project.homepage && (
+					<Button asChild>
+						<a
+							rel="noopener noreferrer"
+							target="_blank"
+							href={project.homepage}
+						>
+							<GlobeIcon className="inline-block mr-1" />
+							Visualizar projeto
+						</a>
+					</Button>
+				)}
+				{project.codeUrl && (
+					<Button variant={project.homepage ? "outline" : "default"} asChild>
+						<a rel="noopener noreferrer" target="_blank" href={project.codeUrl}>
+							<CodeIcon className="inline-block mr-1" />
+							Ver código
+						</a>
+					</Button>
+				)}
 			</div>
 		</article>
 	);
