@@ -1,12 +1,19 @@
-import Link from "next/link";
-import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
-import { featuredProjects } from "@/data/featured-projects";
-import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
-import { FeaturedProject } from "./patterns/featured-project";
+import { featuredProjects } from "@/data/featured-projects";
+import {
+	ClockIcon,
+	GitHubLogoIcon,
+	LinkedInLogoIcon,
+	RocketIcon,
+	StarIcon,
+	TimerIcon,
+} from "@radix-ui/react-icons";
+import { Metadata } from "next";
+import Link from "next/link";
 import { parse } from "valibot";
-import { githubProjectsSchema } from "./patterns/projects-schema";
+import { FeaturedProject } from "./patterns/featured-project";
 import { GithubProject } from "./patterns/github-project";
+import { githubProjectsSchema } from "./patterns/projects-schema";
 
 export const metadata: Metadata = {
 	title: "Projetos",
@@ -27,12 +34,14 @@ export default async function Projects() {
 	);
 
 	return (
-		<main className="grow grid grid-rows-3 justify-evenly items-center p-4">
+		<main className="grow grid grid-rows-[30rem_repeat(2,_minmax(0,_1fr)] lg:grid-rows-[30rem_35rem_1fr] justify-center items-center p-4 gap-10">
 			<section className="flex flex-col gap-3">
 				<h1 className="text-5xl">Meus projetos</h1>
 				<p>
 					Aqui está os{" "}
-					<span className="text-primary italic">principais e mais recentes</span>{" "}
+					<span className="text-primary italic">
+						principais e mais recentes
+					</span>{" "}
 					projetos.{" "}
 					<Link className="underline" href="/about" prefetch={false}>
 						Quer me conhecer melhor?
@@ -63,15 +72,22 @@ export default async function Projects() {
 				</p>
 				<nav className="flex flex-wrap gap-4">
 					<Button variant="outline" asChild>
-						<a href="#featured">Ver projetos destacados</a>
+						<a href="#featured">
+							<StarIcon className="inline-block mr-1" />
+							Ver projetos destacados
+						</a>
 					</Button>
 					<Button asChild>
-						<a href="#recent">Ver projetos recentes</a>
+						<a href="#recent">
+							<ClockIcon className="inline-block mr-1" />
+							Ver projetos recentes
+						</a>
 					</Button>
 				</nav>
 			</section>
-			<section id="featured" className="my-5">
+			<section className="self-start" id="featured">
 				<h2 className="text-2xl font-semibold tracking-tight">
+					<RocketIcon className="inline-block mr-1 h-6 w-6" />
 					Projetos em destaque
 				</h2>
 				<p>Os projetos que mais aprendi, que tem maior importância.</p>
@@ -85,6 +101,7 @@ export default async function Projects() {
 			</section>
 			<section id="recent">
 				<h2 className="text-2xl font-semibold tracking-tight">
+					<TimerIcon className="inline-block mr-1 h-6 w-6" />
 					Atividade recente
 				</h2>
 				<p>Projetos recentes que estou fazendo no Github</p>

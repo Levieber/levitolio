@@ -1,10 +1,10 @@
-import { parse } from "valibot";
-import {
-	projectLanguagesSchema,
-	type GithubProject as Project,
-} from "./projects-schema";
 import { Button } from "@/components/ui/button";
 import { ClockIcon, GlobeIcon } from "@radix-ui/react-icons";
+import { parse } from "valibot";
+import {
+	type GithubProject as Project,
+	projectLanguagesSchema,
+} from "./projects-schema";
 
 const dateFormatter = new Intl.DateTimeFormat("pt-BR", {
 	year: "numeric",
@@ -29,10 +29,9 @@ export async function GithubProject({ project }: GithubProjectProps) {
 	).join(", ");
 
 	return (
-		<article className="dark:bg-slate-800/40 bg-slate-300/80 rounded-r-lg border-l border-foreground p-2 w-96 h-40">
+		<article className="dark:bg-slate-800/40 bg-slate-300/80 rounded-r-lg border-l border-foreground p-2 w-full lg:w-96 h-full md:h-44">
 			<p>
 				<ClockIcon className="inline-block mr-1 h-4 w-4" />
-				Atualizado em:{" "}
 				{dateFormatter.format(new Date(project.updated_at ?? Date.now()))}
 			</p>
 			<div className="mt-3">

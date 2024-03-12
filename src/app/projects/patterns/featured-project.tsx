@@ -9,7 +9,7 @@ type FeaturedProjectProps = {
 
 export function FeaturedProject({ project }: FeaturedProjectProps) {
 	return (
-		<article className="flex flex-col gap-2 h-[28rem] w-full max-w-96 dark:bg-slate-800/40 bg-slate-300/80 p-3 rounded-lg">
+		<article className="flex flex-col gap-2 h-[27rem] w-full max-w-96 dark:bg-slate-800/40 bg-slate-300/80 p-3 rounded-lg">
 			<Image
 				src={project.preview}
 				alt={`Visualização do projeto ${project.name}`}
