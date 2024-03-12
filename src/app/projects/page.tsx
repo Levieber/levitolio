@@ -43,7 +43,7 @@ export default async function Projects() {
 						principais e mais recentes
 					</span>{" "}
 					projetos.{" "}
-					<Link className="underline" href="/about" prefetch={false}>
+					<Link className="underline" href="/" prefetch={false}>
 						Quer me conhecer melhor?
 					</Link>
 				</p>
