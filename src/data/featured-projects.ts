@@ -18,7 +18,7 @@ export const featuredProjects: [
 ] = [
 	{
 		preview: aluroniPreview,
-		homepage: undefined,
+		homepage: "https://aluroni.pages.dev/",
 		codeUrl: "https://github.com/Levieber/aluroni",
 		name: "Aluroni",
 		description:
