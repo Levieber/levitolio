@@ -16,15 +16,13 @@ type GithubProjectProps = {
 	project: Project;
 };
 
+export const revalidate = 3600; // revalidate at most every hour
+
 export async function GithubProject({ project }: GithubProjectProps) {
 	const projectLanguages = Object.keys(
 		parse(
 			projectLanguagesSchema,
-			await fetch(project.languages_url, {
-				next: {
-					revalidate: 60 * 60 * 24, // 1 day
-				},
-			}).then((response) => response.json()),
+			await fetch(project.languages_url).then((response) => response.json()),
 		),
 	).join(", ");
 

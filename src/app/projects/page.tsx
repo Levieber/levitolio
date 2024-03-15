@@ -15,6 +15,8 @@ import { FeaturedProject } from "./patterns/featured-project";
 import { GithubProject } from "./patterns/github-project";
 import { githubProjectsSchema } from "./patterns/projects-schema";
 
+export const revalidate = 3600; // revalidate at most every hour
+
 export const metadata: Metadata = {
 	title: "Projetos",
 	description: "Conheça os projetos de Levi Eber, um desenvolvedor fullstack",
@@ -25,11 +27,6 @@ export default async function Projects() {
 		githubProjectsSchema,
 		await fetch(
 			"https://api.github.com/users/levieber/repos?sort=updated&per_page=10",
-			{
-				next: {
-					revalidate: 60 * 60 * 24, // 1 day
-				},
-			},
 		).then((response) => response.json()),
 	);
 
