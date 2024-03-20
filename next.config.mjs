@@ -4,8 +4,7 @@ const nextConfig = {
 		remotePatterns: [
 			{
 				protocol: "https",
-				hostname: "source.unsplash.com",
-				pathname: "/random",
+				hostname: "www.datocms-assets.com",
 			},
 		],
 	},

@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { featuredProjects } from "@/data/featured-projects";
 import {
 	ClockIcon,
 	GitHubLogoIcon,
@@ -13,7 +12,11 @@ import Link from "next/link";
 import { parse } from "valibot";
 import { FeaturedProject } from "./patterns/featured-project";
 import { GithubProject } from "./patterns/github-project";
-import { githubProjectsSchema } from "./patterns/projects-schema";
+import {
+	featuredProjectsSchema,
+	githubProjectsSchema,
+} from "./patterns/projects-schema";
+import { cmsService } from "../../lib/cms-service";
 
 export const revalidate = 3600; // revalidate at most every hour
 
@@ -28,6 +31,26 @@ export default async function Projects() {
 		await fetch(
 			"https://api.github.com/users/levieber/repos?sort=updated&per_page=10",
 		).then((response) => response.json()),
+	);
+
+	const resultFeaturedProjectsRequest = parse(
+		featuredProjectsSchema,
+		await cmsService({
+			query: `{
+				allFeaturedprojects {
+					id
+					name
+					description
+					homepage
+					codeUrl
+					preview {
+						width
+						height
+						url
+					}
+				}
+			}`,
+		}),
 	);
 
 	return (
@@ -89,7 +112,7 @@ export default async function Projects() {
 				</h2>
 				<p>Os projetos que mais aprendi, que tem maior importância.</p>
 				<ul className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 flex-wrap">
-					{featuredProjects.map((project) => (
+					{resultFeaturedProjectsRequest.allFeaturedprojects.map((project) => (
 						<li key={project.name}>
 							<FeaturedProject project={project} />
 						</li>
